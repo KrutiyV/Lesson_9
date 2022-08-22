@@ -9,7 +9,23 @@ namespace HomeWork
     {
         static void Main(string[] args)
         {
-            static void RegexMethod()
+            
+            try
+            {
+                RegexMethod();
+            }
+            catch (Exception WrongInput)
+            {
+                Console.WriteLine($"Error: {WrongInput.Message}");
+                Console.WriteLine("You can use A-Z, a-z, 0-9");
+                Console.WriteLine("Try again...");
+                RegexMethod();
+            }
+        }
+    }
+}//checked
+//it would be better to place the static method to the position below
+static void RegexMethod()
             {
                 var PhoneBook = new string[]
                 {
@@ -50,17 +66,3 @@ namespace HomeWork
                     Console.WriteLine("Sorry, nothing is matches :(");
                 }
             }
-            try
-            {
-                RegexMethod();
-            }
-            catch (Exception WrongInput)
-            {
-                Console.WriteLine($"Error: {WrongInput.Message}");
-                Console.WriteLine("You can use A-Z, a-z, 0-9");
-                Console.WriteLine("Try again...");
-                RegexMethod();
-            }
-        }
-    }
-}
